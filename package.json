@@ -1,0 +1,15 @@
+{
+  "name": "workload",
+  "version": "1.0.0",
+  "description": "Fill up workload form in on command!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node_modules/casperjs/bin/casperjs run.js"
+  },
+  "author": "Vitaliy Kovalenko",
+  "license": "ISC",
+  "dependencies": {
+    "casperjs": "^1.1.3",
+    "moment": "^2.18.1"
+  }
+}
