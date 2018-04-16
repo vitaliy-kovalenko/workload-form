@@ -10,6 +10,10 @@ var moment = require('moment');
 casper.start('https://docs.google.com/forms/d/e/1FAIpQLSdW8U5fVLVwz_yapNq38NKGtImfZ4kpCfTBluTUN08SBioqPQ/viewform');
 
 casper.then(function() {
+  var dayOfWeek = moment().weekday();
+  if (dayOfWeek == 6 || dayOfWeek == 0) { // stop script if today is saturday or sunday
+    this.exit()
+  }
   this.sendKeys('.quantumWizTextinputPaperinputInput[type=date]', moment().format('YYYY-MM-DD'))
 });
 
@@ -26,11 +30,20 @@ casper.then(function () {
 });
 
 casper.then(function () {
-  this.sendKeys('.quantumWizTextinputPaperinputInput[aria-label="NAME OF MAIN PROJECT"]', 'Ernit'); // Your project
+  this.sendKeys('.quantumWizTextinputPaperinputInput[aria-label="NAME OF MAIN PROJECT"]', 'LandMoney/Mishon'); // Your project
 });
 
 casper.then(function () {
   this.clickLabel('8','span')
+});
+
+casper.then(function() {
+  this.capture('/Users/superhot/dev/workload/info-' + moment().format('YYYY-MM-DD') + '.png', {
+    top: 0,
+    left: 0,
+    width: 400,
+    height: 2000
+  });
 });
 
 casper.then(function () {
@@ -46,11 +59,11 @@ casper.then(function () {
 casper.wait(1500);
 
 casper.then(function() {
-  this.capture('proof' + moment() + '.png', {
+  this.capture('/Users/superhot/dev/workload/proof-' + moment().format('YYYY-MM-DD') + '.png', {
         top: 0,
         left: 0,
-        width: 500,
-        height: 1500
+        width: 400,
+        height: 500
     });
 });  // Your proof.
 

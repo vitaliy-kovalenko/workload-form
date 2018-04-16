@@ -1,7 +1,7 @@
 {
   "name": "workload",
   "version": "1.0.0",
-  "description": "Fill up workload form in on command!",
+  "description": "Fill up workload form in one command!",
   "main": "index.js",
   "scripts": {
     "start": "node_modules/casperjs/bin/casperjs run.js"
